@@ -1,0 +1,9 @@
+# IDE - JetBrains
+.idea
+
+# Composer
+composer.phar
+vendor/
+
+# Build artifacts
+build/
