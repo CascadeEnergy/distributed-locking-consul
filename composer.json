@@ -37,7 +37,7 @@
     "phpunit/phpunit": "4.7.7"
   },
   "require": {
-    "CascadeEnergy/distributed-locking": "0.0.x-dev",
+    "CascadeEnergy/distributed-locking": "0.1.x-dev",
     "CascadeEnergy/php-exceptions": "1.0.x-dev",
     "sensiolabs/consul-php-sdk": "dev-x/guzzle6"
   }
