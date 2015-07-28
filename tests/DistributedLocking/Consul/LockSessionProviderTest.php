@@ -1,8 +1,8 @@
 <?php
 
-namespace Cascade\Tests\DistributedLocking\Consul;
+namespace CascadeEnergy\Tests\DistributedLocking\Consul;
 
-use Cascade\DistributedLocking\Consul\LockSessionProvider;
+use CascadeEnergy\DistributedLocking\Consul\LockSessionProvider;
 
 class LockSessionProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -61,7 +61,7 @@ class LockSessionProviderTest extends \PHPUnit_Framework_TestCase
         $createResult->expects($this->once())->method('getBody')->willReturn($createResultJson);
         $this->session->expects($this->once())->method('create')->willReturn($createResult);
 
-        $this->setExpectedException('Cascade\Exceptions\ExceptionWithContext', 'Malformed session data');
+        $this->setExpectedException('CascadeEnergy\Exceptions\ExceptionWithContext', 'Malformed session data');
         $this->lockSessionProvider->createSession();
     }
 

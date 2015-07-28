@@ -1,9 +1,9 @@
 <?php
 
-namespace Cascade\DistributedLocking\Consul;
+namespace CascadeEnergy\DistributedLocking\Consul;
 
-use Cascade\DistributedLocking\ILockSessionProvider;
-use Cascade\Exceptions\ExceptionWithContext;
+use CascadeEnergy\DistributedLocking\ILockSessionProvider;
+use CascadeEnergy\Exceptions\ExceptionWithContext;
 use SensioLabs\Consul\Services\Session;
 
 class LockSessionProvider implements ILockSessionProvider

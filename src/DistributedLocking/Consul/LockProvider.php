@@ -1,9 +1,9 @@
 <?php
 
-namespace Cascade\DistributedLocking\Consul;
+namespace CascadeEnergy\DistributedLocking\Consul;
 
-use Cascade\DistributedLocking\ILockProvider;
-use Cascade\DistributedLocking\ILockSessionProvider;
+use CascadeEnergy\DistributedLocking\ILockProvider;
+use CascadeEnergy\DistributedLocking\ILockSessionProvider;
 use SensioLabs\Consul\Services\KV;
 
 class LockProvider implements ILockProvider

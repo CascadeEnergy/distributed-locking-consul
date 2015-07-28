@@ -1,8 +1,8 @@
 <?php
 
-namespace Cascade\Tests\DistributedLocking\Consul;
+namespace CascadeEnergy\Tests\DistributedLocking\Consul;
 
-use Cascade\DistributedLocking\Consul\LockProvider;
+use CascadeEnergy\DistributedLocking\Consul\LockProvider;
 
 class LockProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,7 +18,7 @@ class LockProviderTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->consulKeyValue = $this->getMock('SensioLabs\Consul\Services\KV');
-        $this->lockSessionProvider = $this->getMock('Cascade\DistributedLocking\ILockSessionProvider');
+        $this->lockSessionProvider = $this->getMock('CascadeEnergy\DistributedLocking\ILockSessionProvider');
 
         /** @noinspection PhpParamsInspection */
         $this->lockProvider = new LockProvider($this->lockSessionProvider, $this->consulKeyValue);
