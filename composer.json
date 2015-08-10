@@ -1,5 +1,5 @@
 {
-  "name": "CascadeEnergy/distributed-locking-consul",
+  "name": "cascade-energy/distributed-locking-consul",
   "description": "Consul implementation of the distributed locking interfaces",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -13,14 +13,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/cberube/consul-php-sdk"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/cberube/distributed-locking"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/cberube/php-exceptions"
     }
   ],
   "autoload": {
@@ -37,8 +29,8 @@
     "phpunit/phpunit": "4.7.7"
   },
   "require": {
-    "CascadeEnergy/distributed-locking": "0.1.x-dev",
-    "CascadeEnergy/php-exceptions": "1.0.x-dev",
+    "cascade-energy/distributed-locking": "0.1.0",
+    "cascade-energy/php-exceptions": "1.0.0",
     "sensiolabs/consul-php-sdk": "dev-x/guzzle6"
   }
 }

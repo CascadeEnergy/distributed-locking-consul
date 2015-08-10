@@ -9,19 +9,19 @@ use SensioLabs\Consul\Services\KV;
 class LockProvider implements ILockProvider
 {
     /** @var KV */
-    private $consulKeyValue;
+    private $kvClient;
 
     /** @var ILockSessionProvider */
     private $sessionProvider;
 
     /**
      * @param ILockSessionProvider $sessionProvider
-     * @param KV $consulKeyValue
+     * @param KV $kvClient
      */
-    public function __construct(ILockSessionProvider $sessionProvider, KV $consulKeyValue)
+    public function __construct(ILockSessionProvider $sessionProvider, KV $kvClient)
     {
         $this->sessionProvider = $sessionProvider;
-        $this->consulKeyValue = $consulKeyValue;
+        $this->kvClient = $kvClient;
     }
 
     /**
@@ -33,7 +33,7 @@ class LockProvider implements ILockProvider
     {
         $sessionId = $this->sessionProvider->getSessionId();
 
-        $result = (string)$this->consulKeyValue->put($lockName, '', ['acquire' => $sessionId])->getBody();
+        $result = (string)$this->kvClient->put($lockName, '', ['acquire' => $sessionId])->getBody();
 
         if ($result === 'false') {
             return false;
@@ -51,7 +51,7 @@ class LockProvider implements ILockProvider
      */
     public function release($lockHandle)
     {
-        $this->consulKeyValue->put(
+        $this->kvClient->put(
             $lockHandle['name'],
             '',
             ['release' => $lockHandle['sessionId']]
@@ -73,7 +73,7 @@ class LockProvider implements ILockProvider
             return false;
         }
 
-        $result = (string)$this->consulKeyValue->get($lockHandle['name'])->getBody();
+        $result = (string)$this->kvClient->get($lockHandle['name'])->getBody();
         $result = json_decode($result, true);
 
         if (!is_array($result) || !array_key_exists(0, $result)) {
